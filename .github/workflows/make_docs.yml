@@ -35,7 +35,7 @@ jobs:
 
       - name: 清除旧代码文档
         run: |
-          cd api_doc
+          cd ./api_doc
           Get-ChildItem -Force -Exclude .git | ForEach-Object { Remove-Item -Recurse -Verbose -Force $_ }
       
       - name: 生成文档
