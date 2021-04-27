@@ -11,3 +11,4 @@ sphinx-apidoc -o ./api_doc ../code/
 # ./为doc目录
 sphinx-build -b html ./ output
 make html
+
