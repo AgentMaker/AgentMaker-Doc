@@ -1,11 +1,5 @@
 import time
 
-__all__ = ["foo"]
-
-# 测试
-"""测试"""
-
-
 def foo(x: int, y=10):
     """
     Add

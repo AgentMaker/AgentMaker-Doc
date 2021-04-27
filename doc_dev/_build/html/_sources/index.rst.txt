@@ -7,13 +7,19 @@ Welcome to test_doc's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 10
    :caption: Contents:
 
 API
 ===
-.. automodule:: test
-   :members:
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Contents:测试API
+
+   api_doc/test.rst
+
+
 
 Indices and tables
 ==================

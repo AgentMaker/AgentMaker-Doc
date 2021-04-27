@@ -6,15 +6,8 @@ sphinx-quickstart
 
 extensions = ["sphinx.ext.autodoc"
 ]
-
-# Step3 修改index.rst，假设test.py需要生成文档
-API
-===
-.. automodule:: test
-   :members:foo
-
 # Step4 生成
-
+sphinx-apidoc -o ./api_doc ../code/
 # ./为doc目录
 sphinx-build -b html ./ output
 make html
