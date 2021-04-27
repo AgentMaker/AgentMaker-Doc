@@ -1,0 +1,20 @@
+pip install sphinx sphinx-autobuild sphinx_rtd_theme
+mkdir /doc && cd /doc
+sphinx-quickstart
+
+# Step2修改conf.py文件
+
+extensions = ["sphinx.ext.autodoc"
+]
+
+# Step3 修改index.rst，假设test.py需要生成文档
+API
+===
+.. automodule:: test
+   :members:foo
+
+# Step4 生成
+
+# ./为doc目录
+sphinx-build -b html ./ output
+make html

@@ -1,10 +1,5 @@
 import time
 
-__all__ = ["foo"]
-
-# 测试
-"""测试"""
-
 
 def foo(x: int, y=10):
     """
@@ -12,18 +7,11 @@ def foo(x: int, y=10):
     :param x: 
     :param y: 
     :return: result
-    
+
     Example:
     print(foo(1))
     """
     return x + y
-
-
-def foo2(x):
-    """
-    None doc in foo2
-    """
-    return x
 
 
 if __name__ == '__main__':
