@@ -23,10 +23,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
    - name: 初始化Git
-        run: |
-          git config --global user.name ${{ secrets.GTNAME }}
-          git config --global user.email ${{ secrets.EMAIL }}
-          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+     run: |
+       git config --global user.name ${{ secrets.GTNAME }}
+       git config --global user.email ${{ secrets.EMAIL }}
+       git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
      
       - name: 安装Python依赖包
         run: pip install sphinx sphinx-autobuild sphinx_rtd_theme
