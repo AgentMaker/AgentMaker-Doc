@@ -53,7 +53,8 @@ jobs:
       - name: 提交代码
         # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
         run: |
-          git add -A
+          cd $GITHUB_WORKSPACE/repo_home/docs
+          git add .
           git diff HEAD --exit-code
           git config --global user.email ${{ secrets.EMAIL }}
           git commit -m "Updated docs"
