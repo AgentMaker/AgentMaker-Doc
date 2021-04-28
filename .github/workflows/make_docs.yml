@@ -53,14 +53,9 @@ jobs:
       - name: 提交代码
         # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
         run: |
-          $ErrorActionPreference = "Continue"
           git add -A
           git diff HEAD --exit-code
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "No changes to commit!"
-          } else {
-            git config --global user.email ${{ secrets.EMAIL }}
-            git commit -m "Updated docs"
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git push origin mian
-          }
+          git config --global user.email ${{ secrets.EMAIL }}
+          git commit -m "Updated docs"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push origin mian
