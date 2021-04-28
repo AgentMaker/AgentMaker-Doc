@@ -60,7 +60,7 @@ jobs:
       - name: 将代码放入工作区并进行提交
         # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
         run: |
-          git add $GITHUB_WORKSPACE/repo_home/docs
+          git add -A $GITHUB_WORKSPACE/repo_home/docs
           git commit -m "Updated docs"
           
       - name: 开始提交
