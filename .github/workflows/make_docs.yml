@@ -50,13 +50,21 @@ jobs:
           sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
           make html
       
-      - name: 提交代码
+      - name: 将代码放入工作区
         # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
         run: |
           cd $GITHUB_WORKSPACE/repo_home/docs
           git add .
-          git diff HEAD --exit-code
+          
+      - name: 设置BOT信息
+        run: |
           git config --global user.email ${{ secrets.EMAIL }}
+      
+      - name: 设置提交信息
+        run: | 
           git commit -m "Updated docs"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git push origin mian
+          
+      - name: 开始提交
+        run: git push origin main
+          
