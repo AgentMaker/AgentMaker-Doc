@@ -28,32 +28,32 @@ jobs:
         git config --global user.email ${{ secrets.EMAIL }}
         git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
      
-      - name: 安装Python依赖包
-        run: pip install sphinx sphinx-autobuild sphinx_rtd_theme
-      
-      # 如果docs目录名有变此处需要修改
-      # 未来加入 find ./api_doc -name “*.rst” | xargs rm -f
-      - name: 清除旧代码文档
-        run: |
-          ls -l
-          cd $GITHUB_WORKSPACE/repo_home
-          cd ./docs
-          ls -l
-      
-      - name: 生成文档
-        # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
-        run: |
-          cd $GITHUB_WORKSPACE/repo_home/docs
-          sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
-          sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
-          make html
-          
-      - name: 将代码放入工作区并进行提交
-        # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
-        run: |
-          git add -A $GITHUB_WORKSPACE/repo_home/docs
-          git commit -m "Updated docs"
-          
-      - name: 开始提交
-        run: git push origin main
+    - name: 安装Python依赖包
+      run: pip install sphinx sphinx-autobuild sphinx_rtd_theme
+
+    # 如果docs目录名有变此处需要修改
+    # 未来加入 find ./api_doc -name “*.rst” | xargs rm -f
+    - name: 清除旧代码文档
+      run: |
+        ls -l
+        cd $GITHUB_WORKSPACE/repo_home
+        cd ./docs
+        ls -l
+
+    - name: 生成文档
+      # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
+      run: |
+        cd $GITHUB_WORKSPACE/repo_home/docs
+        sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
+        sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
+        make html
+
+    - name: 将代码放入工作区并进行提交
+      # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
+      run: |
+        git add -A $GITHUB_WORKSPACE/repo_home/docs
+        git commit -m "Updated docs"
+
+    - name: 开始提交
+      run: git push origin main
           
