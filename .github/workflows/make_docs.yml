@@ -43,7 +43,7 @@ jobs:
         cd $GITHUB_WORKSPACE/AgentMaker-Doc/docs
         sphinx-apidoc -o $GITHUB_WORKSPACE/AgentMaker-Doc/docs/api_docs $GITHUB_WORKSPACE/AgentMaker-Doc
         sphinx-build -b html $GITHUB_WORKSPACE/AgentMaker-Doc/docs $GITHUB_WORKSPACE/AgentMaker-Doc/docs/output
-        make html
+      # make html
 
     - name: 将代码放入工作区并进行提交
       # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
