@@ -39,7 +39,7 @@ jobs:
         pwd
         echo $GITHUB_WORKSPACE
         cd $GITHUB_WORKSPACE/github.repository
-        cd ./docs
+        cd $GITHUB_WORKSPACE/github.repository/docs
         ls -l
 
     - name: 生成文档
