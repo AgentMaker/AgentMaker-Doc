@@ -46,15 +46,15 @@ jobs:
     - name: 生成文档
       # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
       run: |
-        cd $GITHUB_WORKSPACE/github.repository/docs
-        sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
-        sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
+        cd $GITHUB_WORKSPACE/AgentMaker-Doc/docs
+        sphinx-apidoc -o $GITHUB_WORKSPACE/AgentMaker-Doc/docs/api_docs $GITHUB_WORKSPACE/AgentMaker-Doc
+        sphinx-build -b html $GITHUB_WORKSPACE/AgentMaker-Doc/docs $GITHUB_WORKSPACE/AgentMaker-Doc/docs/output
         make html
 
     - name: 将代码放入工作区并进行提交
       # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
       run: |
-        git add -A $GITHUB_WORKSPACE/github.repository/docs
+        git add -A $GITHUB_WORKSPACE/AgentMaker-Doc/docs
         git commit -m "Updated docs"
 
     - name: 开始提交
