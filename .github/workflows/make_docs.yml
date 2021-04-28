@@ -38,10 +38,10 @@ jobs:
         ls -l
         
         pwd
-        cd $GITHUB_WORKSPACE/github.repository
-        echo "$GITHUB_WORKSPACE/github.repository下目录结构"
+        cd $GITHUB_WORKSPACE/${{ github.repository }}
+        echo "$GITHUB_WORKSPACE/${{ github.repository }}下目录结构"
         ls -l
-        cd $GITHUB_WORKSPACE/docs
+        cd $GITHUB_WORKSPACE/${{ github.repository }}/docs
         ls -l
 
     - name: 生成文档
