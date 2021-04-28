@@ -36,8 +36,11 @@ jobs:
     - name: 清除旧代码文档
       run: |
         ls -l
+        
         pwd
-        echo $GITHUB_WORKSPACE
+        cd $GITHUB_WORKSPACE/github.repository
+        echo "$GITHUB_WORKSPACE/github.repository下目录结构"
+        ls -l
         cd $GITHUB_WORKSPACE/docs
         ls -l
 
