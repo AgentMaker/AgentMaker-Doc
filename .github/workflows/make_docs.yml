@@ -47,7 +47,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/repo_home
           sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
-          sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs/output
+          sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
           make clear
           make html
       
