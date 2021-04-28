@@ -26,17 +26,18 @@ jobs:
       - name: 检出当前分支代码
         uses: actions/checkout@v2
         with:
-          # 检出main分支下的docs目录
+          # 检出main分支下的docs目录，如果docs目录有变此处需要修改
           ref: main
           path: docs
       
       - name: 安装Python依赖包
         run: pip install sphinx sphinx-autobuild sphinx_rtd_theme
-
+      
+      # 如果docs目录有变此处需要修改
       - name: 清除旧代码文档
         run: |
           ls -l
-          cd $GITHUB_WORKSPACE/api_doc
+          cd $GITHUB_WORKSPACE/docs
           ls -l
           Get-ChildItem -Force -Exclude .git | ForEach-Object { Remove-Item -Recurse -Verbose -Force $_ }
       
