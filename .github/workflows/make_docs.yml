@@ -38,8 +38,7 @@ jobs:
         ls -l
         pwd
         echo $GITHUB_WORKSPACE
-        cd $GITHUB_WORKSPACE/github.repository
-        cd $GITHUB_WORKSPACE/github.repository/docs
+        cd $GITHUB_WORKSPACE/docs
         ls -l
 
     - name: 生成文档
