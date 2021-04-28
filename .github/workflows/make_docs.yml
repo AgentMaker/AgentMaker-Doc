@@ -48,7 +48,6 @@ jobs:
           cd $GITHUB_WORKSPACE/repo_home/docs
           sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
           sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
-          make clear
           make html
       
       - name: 提交代码
