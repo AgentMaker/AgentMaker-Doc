@@ -45,7 +45,7 @@ jobs:
       - name: 生成文档
         # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
         run: |
-          cd $GITHUB_WORKSPACE/repo_home
+          cd $GITHUB_WORKSPACE/repo_home/doc
           sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
           sphinx-build -b html $GITHUB_WORKSPACE/repo_home/docs $GITHUB_WORKSPACE/repo_home/docs/output
           make clear
