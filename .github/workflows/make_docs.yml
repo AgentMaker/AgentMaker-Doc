@@ -43,10 +43,10 @@ jobs:
           ls -l
       
       - name: 生成文档
-        # 生成./..目录下的所有py相关的文件注释，并放在api_docs中
+        # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
         run: |
           cd $GITHUB_WORKSPACE/repo_home
-          sphinx-apidoc -o ./api_docs ./..
+          sphinx-apidoc -o $GITHUB_WORKSPACE/repo_home/docs/api_docs $GITHUB_WORKSPACE/repo_home
           sphinx-build -b html ./ output
           make clear
           make html
