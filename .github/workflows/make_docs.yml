@@ -55,13 +55,13 @@ jobs:
           git init
           git config --global user.name ${{ secrets.GTNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           
       - name: 将代码放入工作区并进行提交
         # 需要在设置中添加secrets.EMAIL、secrets.GITHUB_TOKEN，分支有变化则需要修改git push origin mian的main
         run: |
           git add $GITHUB_WORKSPACE/repo_home/docs
           git commit -m "Updated docs"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           
       - name: 开始提交
         run: git push origin main
