@@ -35,7 +35,9 @@ jobs:
 
       - name: 清除旧代码文档
         run: |
-          cd ./api_doc
+          ls -l
+          cd $GITHUB_WORKSPACE/api_doc
+          ls -l
           Get-ChildItem -Force -Exclude .git | ForEach-Object { Remove-Item -Recurse -Verbose -Force $_ }
       
       - name: 生成文档
