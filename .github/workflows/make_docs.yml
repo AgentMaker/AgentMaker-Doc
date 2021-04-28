@@ -29,10 +29,7 @@ jobs:
           # 检出main分支，如果docs目录有变此处需要修改
           ref: main
           path: repo_home
-      
-      - name: 进入项目环境
-        run: cd $GITHUB_WORKSPACE/repo_home
-      
+     
       - name: 安装Python依赖包
         run: pip install sphinx sphinx-autobuild sphinx_rtd_theme
       
@@ -41,12 +38,14 @@ jobs:
       - name: 清除旧代码文档
         run: |
           ls -l
+          cd $GITHUB_WORKSPACE/repo_home
           cd ./docs
           ls -l
       
       - name: 生成文档
         # 生成./..目录下的所有py相关的文件注释，并放在api_docs中
         run: |
+          cd $GITHUB_WORKSPACE/repo_home
           sphinx-apidoc -o ./api_docs ./..
           sphinx-build -b html ./ output
           make clear
