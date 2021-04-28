@@ -35,13 +35,7 @@ jobs:
     # 未来加入 find ./api_doc -name “*.rst” | xargs rm -f
     - name: 清除旧代码文档
       run: |
-        ls -l
-        
-        pwd
-        cd $GITHUB_WORKSPACE/AgentMaker-Doc
-        ls -l
-        cd $GITHUB_WORKSPACE/AgentMaker-Doc/docs
-        ls -l
+        find $GITHUB_WORKSPACE/AgentMaker-Doc/docs/api_docs -name “*.rst” | xargs rm -f
 
     - name: 生成文档
       # 生成./..目录下的所有py相关的文件注释，并放在api_docs中，如果docs目录名有变此处需要修改
